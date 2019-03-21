@@ -3,17 +3,31 @@ namespace Home\Controller;
 use Think\Controller;
 class DemoController extends Controller {
 	public function demo(){
-	   $model = M('user');
-	   $data = $model->select();
-	   $this->assign('data',$data);
-	   include('Index.clsaa.php');
-	   $this->display();
+	   $New = M('user');
 	   
+        if(isset($_GET['id'])) {
+            // 根据id查询结果
+            $data = $New->find($_GET['id']);
+        }elseif(isset($_GET['name'])){
+            // 根据name查询结果
+            $data = $New->getByName($_GET['name']);
+        }
+        $this->data = $data;
+		
+		$data1 = $New->select();
+		$this->assign('data',$data1);
+        $this->display();
 	}
 	
-	public function regiser(){
-	   echo 'hello,world this is test';
+	public function register(){
+		$this->display();
+		echo '下面是php中的test';
+		echo "<img src='".IMAGE_URL.'sl.jpg'."'>";
+		
 	}
-
-
+	
+	public function _empty(){
+		echo "<img src='".IMAGE_URL.'error.jpg'."'>";
+	}
+	
 }
