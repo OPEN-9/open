@@ -25,9 +25,10 @@ class DemoController extends Controller {
 		echo "<img src='".IMAGE_URL.'sl.jpg'."'>";
 		
 	}
-	
+	// 控制器没有这个方法就跳转到这个页面
 	public function _empty(){
 		echo "<img src='".IMAGE_URL.'error.jpg'."'>";
 	}
-	
+
+
 }

@@ -34,7 +34,7 @@ class App {
         define('IS_PUT',        REQUEST_METHOD =='PUT' ? true : false);
         define('IS_DELETE',     REQUEST_METHOD =='DELETE' ? true : false);
 
-        // URL调度
+        // URL调度 路由解析:把模块,控制器,方法
         Dispatcher::dispatch();
 
         if(C('REQUEST_VARS_FILTER')){

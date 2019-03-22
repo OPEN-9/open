@@ -1,26 +1,29 @@
 <?php
 namespace Home\Controller;
 use Think\Controller;
-class IndexController extends Controller {
+class IndexController extends Controller { 
     public function index(){
 		
 		$uname=$_POST['uname'];     
-        $upwd=$_POST['upwd'];     
+		$upwd=MD5($_POST['upwd']);
+		$user1 = M('user');
+		
 		if(isset($_POST['sub'])){
-			
-			if(!empty($uname)&&!empty($upwd)){
-				$user1 = M('user');
+			if(!empty($uname)&&!empty($upwd)){                    
 				$select = $user1->query("select * from user where uname='$uname' and upwd='$upwd'");
-				if($select){					
-					$session = session_start();
-					$session['uname'] = $uname;
-					$session['upwd'] = $upwd;
-					$this ->redirect('Index/show','',3,"登陆成功！前往用户中心");
-				}else{
-					$this ->redirect('Index/index','',3,"用户名或者密码错误");
+				
+				if($select){
+					// session本地存储自定义名称user
+					session('user',$select);
+					var_dump($select);
+					$this ->redirect('Index/show','',1,"登陆成功！前往用户中心");
 				}
-			}else{
-				$this ->redirect('Index/index','',3,"请填写，用户名或密码");
+				else{
+					$this ->redirect('Index/index','',1,"用户名或者密码错误");
+				}
+			}
+			else{
+				$this ->redirect('Index/index','',1,"请填写，用户名或密码");
 		    }
 			
 		}
@@ -35,44 +38,46 @@ class IndexController extends Controller {
 	public function zhuce(){
 	    header("Content-Type:text/html; charset=utf-8");
 		$this->display();
-
+		//获取input的内容
 		if(isset($_POST['sub'])){
-		   $uname=$_POST['uname'];     
-		   $upwd=$_POST['upwd'];       
-		   $usex=$_POST['usex'];       
-		   $utel=$_POST['utel'];      
-		   $uqq=$_POST['uqq'];       
-		   $uaddress=$_POST['uaddress'];     
-
-			if(!empty($uname)&&!empty($upwd)){
+		    $uname=$_POST['uname'];
+		    $upwd=$_POST['upwd'];    
+			$upwd=MD5($_POST['upwd']);
+		    $phone=$_POST['phone'];     
+		    $name=$_POST['name'];    
+			$sex=$_POST['sex'];
+			$education=$_POST['education'];    
+			$status=$_POST['status'];    
+			
+			if(!empty($uname)){
 				//判断用户是否已经注册了
-				$user1=M();
-
-				$select =$user1->query("select * from think_user where name='$uname' and pwd='$upwd'");
+				$user1=M('user');
+				//获取库的信息$uname信息(账号);
+				$select =$user1->query("select * from user where uname='$uname'");
 				if($select){//如果存在该用户
-				  $this->redirect('Index/index','',3,'该用户已经注册，请直接登陆');           
+				  $this->redirect('Index/index','',1,'该用户已经注册，请直接登陆');           
 				 }
 
-			  //注册
+			  //注册 入库
 			  $data = array(
-				 'id'  => NULL,
-				 'name' =>$uname,
-				 'pwd' =>$upwd,
-				 'sex' =>$usex,
-				 'tel' =>$utel,
-				 'qq' =>$uqq,
-				 'address' =>$uaddress,
+				 'uname' =>$uname,
+				 'upwd' => $upwd,
+				 'phone' =>$phone,
+				 'sex' => $sex,
+				 'name' =>$name,
+				 'status' =>$status,
+				 'education' =>$education,
 			  );
-
-
-			 $insert=M('User')->add($data);
+			  
+			 $insert=M('user')->add($data);
+			 
 			  if($insert){
-				  //如果注册成功  把密码保存在seesion 里
+				  //如果注册成功  把密码保存在session 里
 				 // session.start();
 				  $session['uname'] =$uname;
 				  $session['upwd'] = $upwd;
 				  //页面跳转
-				  $this->redirect('Index/show','','2','注册成功，前往用户中心');                    
+				  $this->redirect('Index/index','','1','注册成功，前往用户中心');                    
 			  }else{
 				  echo "<script>alert('注册失败！');</script>";
 			  }
@@ -81,13 +86,29 @@ class IndexController extends Controller {
 	}
 	
 	public function show(){ 
-		session_start(); 
-		$uname=$uname=$_SESSION['uname']; 
-		$upwd=$upwd=$_SESSION['upwd'];
-		$user=M('user');
-		$select=$user->query("select * from user where uname='$uname' and upwd='$upwd'");
-		$this->assign('info',$select);
+		
+		$user = session('user');
+		// var_dump($user);
+		if(empty($user))
+			echo "<script>alert('请登录在操作！');</script>";
+
+		$this->assign('info',$user);
 		$this->display();      
 	}
+	
+	public function showlist(){
+		
+		//$user = new \Home\Model\UserModel();
+		//$demo = new \Home\Model\DemoModel();
+        // $d =  D("User");("模型标志");
+		echo "<pre>";
+		// var_dump($user);
+		// var_dump($d);
+		// var_dump($demo);
+		echo "</pre>";
+		$this->display();
+		
+	}
+	
 	
 }
