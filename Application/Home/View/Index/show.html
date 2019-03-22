@@ -8,15 +8,20 @@
 		<center>
 			 <table id="tbinfo" name="info">
 				<tr>
-				  <td>ID：</td>
+				<tr>
+				   <td>login</td>
+				   <td>{$info[0]['uname']}</td>
+				</tr>
+				  <td>IDname：</td>
 				  <td>{$info[0]['name']}</td>
 				</tr>
 				<tr>
 				  <td>性别：</td>
-				  <td>
-					 <if condition="$info[0]['sex'] eq 1 ">女<elseif condition="$info[0]['sex'] eq 0"/>男 <else/> 
-					 value3</if>      
-				  </td>
+					<td>
+						<if condition="strtoupper($sex['1']) neq 1">m
+						<else /> wm
+						</if>
+					</td>
 				</tr>       
 				<tr>
 				   <td>密 码</td>
@@ -28,14 +33,11 @@
 				</tr>
 
 				<tr>
-				   <td>QQ</td>
-				   <td>{$info[0]['qq']}</td>
+				   <td>status</td>
+				   <td>{$info[0]['status']}</td>
 				</tr>
 
-				<tr>
-				   <td>联系地址</td>
-				   <td>{$info[0]['address']}</td>
-				</tr>
+				
 			  </table>   
 		</center>
 	</body>

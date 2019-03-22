@@ -20,7 +20,7 @@
 				</tr>       
 				<tr>
 				   <td>密 码</td>
-				   <td><?php echo ($info[0]['upwd']); ?></td>
+				   <td><?php echo ($info1[1]['upwd']); ?></td>
 				</tr>
 				<tr>
 				   <td>联系电话</td>
