@@ -107,6 +107,7 @@ class IndexController extends Controller {
 		// var_dump($demo);
 		echo "</pre>";
 		$this->display();
+		$user = M('user');
 		
 	}
 	
