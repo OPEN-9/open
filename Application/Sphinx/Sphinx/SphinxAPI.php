@@ -413,16 +413,16 @@ class SphinxClient
 	// common stuff
 	/////////////////////////////////////////////////////////////////////////////
 
-	/// create a new client object and fill defaults
+	/// create a new client object and fill defaults 创建一个新的客户端对象并填充默认值
 	public function __construct ()
 	{
-		// per-client-object settings
+		// per-client-object settings 对象每个客户端对象
 		$this->_host		= "localhost";
 		$this->_port		= 9312;
 		$this->_path		= false;
 		$this->_socket		= false;
 
-		// per-query settings
+		// per-query settings   每个查询的设置
 		$this->_offset		= 0;
 		$this->_limit		= 20;
 		$this->_mode		= SPH_MATCH_ALL;
@@ -691,7 +691,7 @@ class SphinxClient
 	public function SetLimits ( $offset, $limit, $max=0, $cutoff=0 )
 	{
 		assert ( is_int($offset) );
-		assert ( is_int($limit) );
+		assert ( is_int($limit) ); 
 		assert ( $offset>=0 );
 		assert ( $limit>0 );
 		assert ( $max>=0 );
@@ -699,7 +699,7 @@ class SphinxClient
 		$this->_limit = $limit;
 		if ( $max>0 )
 			$this->_maxmatches = $max;
-		if ( $cutoff>0 )
+		if ( $cutoff>0 ) 
 			$this->_cutoff = $cutoff;
 	}
 
