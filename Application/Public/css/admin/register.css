@@ -1,0 +1,40 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+
+body{
+}
+
+.contens{
+	width: 1900px;
+	margin: 0 auto;
+	height: 900px;
+	border: 1px solid #333333;
+	background: url(../../image/home/th.jpg) no-repeat;
+}
+
+.register{
+	height: 400px;
+	width: 300px;
+	margin:100px auto;
+	background: #fff;
+	border-radius: 4px;
+}
+
+.register .title{
+	text-align: center;
+	font-size: 18px;
+}
+
+.register .form-class{
+	margin: 20px auto;
+	text-align: center;
+}
+
+.register .form-class .uname , 
+.register .form-class .pwd,
+.register .form-class .phone, 
+.register .form-class .name{
+	margin-bottom: 10px;
+}

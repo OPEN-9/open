@@ -1,4 +1,30 @@
- <!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.6, created on 2019-03-28 09:18:27
+         compiled from "./Application/Home/View\Demo\demo.html" */ ?>
+<?php /*%%SmartyHeaderCode:299505c9b49daecbfe6-47444501%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'd89e0a7ad525248190c8eb60b41346189f44f73e' => 
+    array (
+      0 => './Application/Home/View\\Demo\\demo.html',
+      1 => 1553735889,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '299505c9b49daecbfe6-47444501',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5c9b49daf23bb',
+  'variables' => 
+  array (
+    'Think' => 0,
+    'sql' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5c9b49daf23bb')) {function content_5c9b49daf23bb($_smarty_tpl) {?> <!DOCTYPE html>
  <html lang="zh">
  <head>
  	<meta charset="UTF-8">
@@ -6,13 +32,15 @@
  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
  	<title></title>
 	
-	<link href="{$smarty.const.CSS_URL}home/index.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo @CSS_URL;?>
+home/index.css" rel="stylesheet" type="text/css" />
 	
 </head>
  <body>
 	<div class="contens">
 		<!-- 图片格式
-		<img src="{$Think.const.IMAGE_URL}th.jpg" /> -->
+		<img src="<?php echo $_smarty_tpl->tpl_vars['Think']->value['const']['IMAGE_URL'];?>
+th.jpg" /> -->
 		<h1 style="color:#ffffff; text-align: center;">标题</h1>
 		<div class="text-contents">
 			<p class="ppp">
@@ -31,16 +59,17 @@
 				他类型的材料，如：访谈、媒体报告。
 				文本分析
 				<volist name='data' id='sql'>
-					 <p class="abcc">我是第一个 {$sql.name}</p>
+					 <p class="abcc">我是第一个 <?php echo $_smarty_tpl->tpl_vars['sql']->value['name'];?>
+</p>
 				</volist>
 			</p>
 		</div>
 		<div class="edit">
-			<?php include 'edit.php';?>
+			<<?php ?>?php include 'edit.php';?<?php ?>>
 		</div>
 		<a href="register.html">本地点击</a><br />
 		<a href='www.com'>这是一个错位的点击<a/><br />
 		<a href='http://www.baidu.com'>这是一个百度的点击<a/>
 	</div>
  </body>
- </html>
+ </html><?php }} ?>

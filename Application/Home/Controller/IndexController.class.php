@@ -15,7 +15,6 @@ class IndexController extends Controller {
 				if($select){
 					// session本地存储自定义名称user
 					session('user',$select);
-					var_dump($select);
 					$this ->redirect('Index/show','',1,"登陆成功！前往用户中心");
 				}
 				else{
@@ -109,5 +108,10 @@ class IndexController extends Controller {
 		$this->display();
 		$user = M('user');
 	}
+	
+	public function abc(){
+		return '100yuan';
+	}
+	
 	
 }
