@@ -10,7 +10,7 @@ class ManageController extends Controller{
 		if (true){//隔断代码 想看api接口是可以改为true
 			// 使用Sphinx来完成查询
 			$sc = new SphinxClient();             // 生成客户端
-			$sc->setServer('localhost',9312);    // 设置服务器
+			$sc->setServer('localhost',9312);     // 设置服务器
 			// $sc->query('查询的关键词', 索引文件的名称);
 			$keyword="this";
 			$indexname ='src1';
