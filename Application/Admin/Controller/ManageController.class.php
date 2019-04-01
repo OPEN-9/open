@@ -1,8 +1,46 @@
 <?php
 namespace Admin\Controller;
 use Think\Controller;
-
+use \Admin\Model\Api\SphinxClient as SphinxClient;
+require './Application/Admin/Model/Api/sphinx.php';
 class ManageController extends Controller{
+	
+	public function testdata(){
+
+		if (true){//隔断代码 想看api接口是可以改为true
+			// 使用Sphinx来完成查询
+			$sc = new SphinxClient();             // 生成客户端
+			$sc->setServer('localhost',9312);    // 设置服务器
+			// $sc->query('查询的关键词', 索引文件的名称);
+			$keyword="this";
+			$indexname ='src1';
+			$res = $sc->query($keyword,$indexname);
+			var_dump($res);
+			/*$ids   = $res['id'];
+			$id = array_keys($ids);
+			$id = implode(',',$id); 
+			mysql_connect("148.70.141.161",'root','123456');
+			mysql_query('use php');
+			$sql="id, group_id, UNIX_TIMESTAMP(date_added) AS date_added, title, content";
+			$res = mysql_query($sql);
+			*/
+		   
+
+
+
+
+
+
+
+
+
+
+
+		}
+		
+		
+
+	}
 	
 	function login(){
 		$this->display();
@@ -19,7 +57,9 @@ class ManageController extends Controller{
 		echo 'abccccc';
 	}
 	
+	
 }
 
 
 ?>
+	

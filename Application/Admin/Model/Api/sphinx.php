@@ -5,7 +5,7 @@
 * @package 技友
 * create date 2016年4月05日
 */
-namespace Sphinx\Sphinx;
+namespace Admin\Model\Api;
 
 define ( "SEARCHD_COMMAND_SEARCH",		0 );
 define ( "SEARCHD_COMMAND_EXCERPT",		1 );
@@ -414,6 +414,7 @@ class SphinxClient
 	/////////////////////////////////////////////////////////////////////////////
 
 	/// create a new client object and fill defaults 创建一个新的客户端对象并填充默认值
+	
 	public function __construct ()
 	{
 		// per-client-object settings 对象每个客户端对象
