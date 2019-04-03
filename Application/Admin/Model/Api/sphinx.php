@@ -1,10 +1,4 @@
 <?php
-/**
-* @copyright Copyright (c) 2015 – 2018 www.yc5158.com
-* @author 技友项目开发团队
-* @package 技友
-* create date 2016年4月05日
-*/
 namespace Admin\Model\Api;
 
 define ( "SEARCHD_COMMAND_SEARCH",		0 );
