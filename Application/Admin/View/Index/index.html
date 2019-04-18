@@ -6,17 +6,26 @@
  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
  	<title></title>
 	
-	<link href="{$smarty.const.CSS_URL}home/index.css" rel="stylesheet" type="text/css" />
+	<link href="{$smarty.const.CSS_URL}admin/index.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="{$smarty.const.JS_URL}home/index.js" type="text/jscript"></script>
+	<script src="{$smarty.const.JS_URL}admin/index.js" type="text/jscript"></script>
  </head>
  <body>
 	 <div class="photo">
 		<h2>Welcome to my website</h2>
-		<h3>Here's a comfortable interface and interaction for you.</h3>
-		<h4>Please browse the page and give us valuable advice.</h4>
-		<h4>Thank you Your valuable opinions are our greatest motivation.</h4>
+		<h4>Here's a comfortable interface and interaction for you.</h3>
+		<h5>Please browse the page and give us valuable advice.</h4>
+		<h5>Thank you Your valuable opinions are our greatest motivation.</h4>
 		<h5>Wish you a happy life and good-bye.</h5>
+		<p class="date"></p>
+		<p class="time"></p>
+		
+		<div class="lefts">
+			leftclick
+			<p class="none1" style="display: none; width: 300px; text-align: center;margin:30px auto; font-size: 16px; color: #333333;">
+				left
+			</p>
+		</div>
 		
 		<div class="register">
 			<p class="title">登录</p>
@@ -24,48 +33,19 @@
 			<form action="index.html" method="post" class="form-class">
 				<input type="text"  placeholder="email" name="uname" class="uname"/>
 				<input type="password" placeholder="pwd" name="pwd"  class="pwd"/><br/>
+				<input type="text" class="token" placeholder="验证码" name="token" />
+					<img src="{$smarty.const.verify}" onclick="this.src=this.src+'?'+Math.random()">
+				<br/>
 				<button type="submit" name='zhuce'>注册</button>
 				<button type="submit" name='submit'>登录</button>
 			</form>
 			
 		</div>	
-		
-		
-		<div class="lefts">
-			leftclick
-			<p class="none1" style="display: none; width: 300px; text-align: center;margin:30px auto; font-size: 16px; color: #333333;">
-				1hello Walt Disney creaty Mouse when he worked wi
-				ed Mickey Mouse when he worked with hi
-				s friends in the old building. They saw m
-				ice in and out, so he came the idea that 
-				he drew a cartoon mouse. It stood like a h
-				uman and wore white gloves in its hand. Chi
-				ldren loved this cartoon image so much that 
-				Walt Disney started his career successfully.
-				s friends in the oica h
-				uman and wore white gloves in its hand. Chi
-				ldren loved this cartoon image so much that 
-				Walt Disney started his career successfully.
-			</p>
-		</div>
 
 		<div class="rights">
 			rightclick
 			<p class="none2" style="display: none;width: 400px; text-align: center;margin:30px auto;">
-				2hi like a hldren loved this c
-				artoon imagld building. They saw m
-				ice in and out, so he came the idea that 
-				he drew a cartoon mouse. It stood like a h
-				he drew a cartoon mouse. It stood like a h
-				uman and wore white gloves in its hand. Chi
-				ldren loved this cartoon image so much that 
-				Walt Disney started his career successfully.
-				Walt Disney creaty Mouse when he worked wi
-				ed Mickey Mouse when he worked with hi
-				s friends in the old building. They saw m
-				ice in and out, so he came the idea that 
-				ice in and out, so he came the idea that 
-				he drew a cartoon mouse. It stood 
+				right
 			</p>
 		</div>
 		

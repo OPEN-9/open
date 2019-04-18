@@ -9,7 +9,7 @@ return array(
 //     'DB_PORT'               =>  '3306',      //  端口
 // 	'URL_MODEL'             =>  1, 
 	
-	
+	// 'DB_NAME'               =>  'test',          // 数据库名
 // 	'URL_ROUTER_ON'   => true, 
 // 	'URL_ROUTE_RULES'=>array(
 // 		//首页

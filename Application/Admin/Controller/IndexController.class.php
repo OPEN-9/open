@@ -7,70 +7,60 @@ class IndexController extends Controller {
 	
 	
 	function usecenter(){
-
-// 		$abc  = new  \Sphinx\Sphinx\SphinxClient();
-// 		echo $abc->setMatchMode();
-// 		var_dump($abc);
 		
-// 		$sphinx  = new  \Sphinx\Sphinx\SphinxClient();
-// 		
-// 		// var_dump($sphinx);
-// 		$sphinx1 = $this->get('search');
-// 		var_dump($sphinx1);die();
-		
-		
-// 		$sphinx->setMatchMode(SPH_MATCH_ANY);
-// 		$sphinx->SetLimits(1, 5);
-// 		$improt = $sphinx->searchEx();
-// 		$result = $info['matches'];
-//  		var_dump($info);die();
+		$model = D('register');
+		$test = $this->assign('info',$model);
+		$this->display();
 		
 	}
-
-	function usecenter1(){
-	// 存放注释
-	// 		$kua1 = A('Home/Index');
-	// 		var_dump($kua1);
-	// 		$this->display();
-	// 		$kua = A('Sphinx/Sphinx'); //跨控制器调用
-	// 		echo $kua->SetConnectTimeout();
 	
+	function check_verify($code, $id = ''){
+		$verify = new \Think\Verify();
+		return $verify->check($code, $id);
 	}
-
 	
     function index(){
-		
-		if(isset($_POST['submit'])){
-			
+		if(IS_POST){
 			$uname=$_POST['uname'];
-			$pwd=$_POST['pwd'];
-			if(!empty($uname) && !empty($pwd)){
-				
+			$pwd=MD5($_POST['pwd']);
+			$code1 = $_POST['token'];
+			// self  仅限当前页面的方法  this的话是当前函数的方法
+			if(self::check_verify($code1) === true)
+			{
+			if(!empty($uname) && !empty($pwd) && !empty($code1)){
 				$manage = M('register');
-				$select = $manage->query(" select * from  register where uname='$uname' and pwd='$pwd' ");
+				$select = $manage->query(" select * from  register where uname='$uname' and upwd='$pwd' ");
 				if($select){
 					session('register',$select);
 					$this->redirect('Index/usecenter','',0,'登陆成功');
 				}else{
-					$this->redirect('Index/index','',2,'账号密码错误');
+					$this->redirect('Index/index','',10,'账号密码错误');
 				}
 				
 			}else{
 				$mes = '请填写用户名或密码';
 				echo '<script>alert("$mes")</script>';
-				// $this ->redirect('Index/index','',1,"请填写，用户名或密码");
+				$this ->redirect('Index/index','',1,"请填写，用户名或密码");
 			}
+			}else{
+				echo 'error';
+			};
+				
+			
 		}
-		
 		if(isset($_POST['zhuce'])){
-			
-			$this ->redirect('Index/register','',0,"前往注册页面");
-			
+			$this ->redirect('Index/usecenter','',0,"前往注册页面");
 		}
-		
 		$this->display();
-		
     }
+	
+	public function verify() {
+		$Verify =     new \Think\Verify();
+		$Verify->fontSize = 30;
+		$Verify->length   = 4;
+		$Verify->useNoise = false;
+		$Verify->entry();
+	}
 	 
 	function register(){
 		
@@ -112,5 +102,30 @@ class IndexController extends Controller {
 	}
 	
 	
+	function usecenter1(){
+	// 		$abc  = new  \Sphinx\Sphinx\SphinxClient();
+	// 		echo $abc->setMatchMode();
+	// 		var_dump($abc);
+			
+	// 		$sphinx  = new  \Sphinx\Sphinx\SphinxClient();
+	// 		
+	// 		// var_dump($sphinx);
+	// 		$sphinx1 = $this->get('search');
+	// 		var_dump($sphinx1);die();
+			
+			
+	// 		$sphinx->setMatchMode(SPH_MATCH_ANY);
+	// 		$sphinx->SetLimits(1, 5);
+	// 		$improt = $sphinx->searchEx();
+	// 		$result = $info['matches'];
+	//  		var_dump($info);die();
+	// 存放注释
+	// 		$kua1 = A('Home/Index');
+	// 		var_dump($kua1);
+	// 		$this->display();
+	// 		$kua = A('Sphinx/Sphinx'); //跨控制器调用
+	// 		echo $kua->SetConnectTimeout();
 	
+	}
+		
 }

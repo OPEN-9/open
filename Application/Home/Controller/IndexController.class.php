@@ -30,7 +30,7 @@ class IndexController extends Controller {
 		if(isset($_POST['zc'])){  //如果点击的是注册
 		   $this ->redirect('Index/zhuce','',1,"前往用户中心注册");
 	    }
-	
+		
 		$this->display();
     }
 	
@@ -95,23 +95,18 @@ class IndexController extends Controller {
 		$this->display();      
 	}
 	
+	
+	
 	public function showlist(){
 		
-		//$user = new \Home\Model\UserModel();
-		//$demo = new \Home\Model\DemoModel();
-        // $d =  D("User");("模型标志");
-		echo "<pre>";
-		// var_dump($user);
-		// var_dump($d);
-		// var_dump($demo);
-		echo "</pre>";
-		$this->display();
-		$user = M('user');
+		$User = D('User');
+		$info = $User->where('id=1')->select();
+		dump($info);
+// 		$this->assign('info',$info);
+// 		
+// 		$this->display();
+		
+		
 	}
-	
-	public function abc(){
-		return '100yuan';
-	}
-	
 	
 }

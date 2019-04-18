@@ -19,14 +19,12 @@ class ManageController extends Controller{
 // }
 		   
  
-// 		header('Content-Type:text/html;charset=utf-8');    //编码为utf-8
-		$list= array();
-		// if(!empty($_POST)){
+			$list= array();
+		// if(!empty($_POST)){}
 			$sc = new SphinxClient(); // 实例化Api
 			$sc->setServer('localhost', 9306); // 设置服务端，第一个参数sphinx服务器地址，第二个sphinx监听端口
 			$res = $sc->query('this', 'test1'); // 执行查询，第一个参数查询的关键字，第二个查询的索引名称，mysql索引名称（这个也是在配置文件中定义的），多个索引名称以,分开，也可以用*表示所有索引。
 			var_dump($res);
-			
 		   
 
 	}
