@@ -34,7 +34,7 @@ class IndexController extends Controller {
 					session('register',$select);
 					$this->redirect('Index/usecenter','',0,'登陆成功');
 				}else{
-					$this->redirect('Index/index','',10,'账号密码错误');
+					$this->redirect('Index/index','',1,'账号密码错误');
 				}
 				
 			}else{
@@ -45,11 +45,10 @@ class IndexController extends Controller {
 			}else{
 				echo 'error';
 			};
-				
 			
 		}
 		if(isset($_POST['zhuce'])){
-			$this ->redirect('Index/usecenter','',0,"前往注册页面");
+			$this ->redirect('Index/register','',0,"前往注册页面");
 		}
 		$this->display();
     }

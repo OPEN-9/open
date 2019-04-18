@@ -1,0 +1,17 @@
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="<?php echo (JS_URL); ?>home/test.js" type="text/jscript"></script>
+	</head>
+<body>
+		
+	帐号<input type="text" placeholder="请输入帐号" value="" name="uname" id="uname" >
+	密码<input type="password" placeholder="请输入密码" value="" name="upwd" id="upwd" >
+	<input type="submit" placeholder="提交" id="submit"/>
+	
+</body>
+</html>

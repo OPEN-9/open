@@ -18,6 +18,10 @@ class UserModel extends Model{
 	        array('name','getName',3,'callback'), // 对name字段在新增和编辑的时候回调getName方法
 	        array('update_time','time',2,'function'), // 对update_time字段在更新的时候写入当前时间戳
 	    );
+		
+		public function getUser($where){
+		    return $this->where($where)->find();
+		}
 	
 
 }	 
