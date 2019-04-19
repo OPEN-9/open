@@ -1,12 +1,12 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title></title>
 	</head>
-	<script type="text/javascript" src="{$Think.const.JS_URL}jquery-1.11.0.js"></script>
-	<script src="{$Think.const.JS_URL}admin/register.js" type="text/jscript"></script>
-	<link type="text/css" rel="stylesheet" href="{$Think.const.CSS_URL}admin/register.css" />
+	<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery-1.11.0.js"></script>
+	<script src="<?php echo (JS_URL); ?>admin/register.js" type="text/jscript"></script>
+	<link type="text/css" rel="stylesheet" href="<?php echo (CSS_URL); ?>admin/register.css" />
 	<body>
 		
 <div class="contens">

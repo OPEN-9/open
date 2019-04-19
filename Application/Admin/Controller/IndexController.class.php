@@ -22,14 +22,14 @@ class IndexController extends Controller {
     function index(){
 		if(IS_POST){
 			$uname=$_POST['uname'];
-			$pwd=MD5($_POST['pwd']);
+			$upwd=MD5($_POST['upwd']);
 			$code1 = $_POST['token'];
 			// self  仅限当前页面的方法  this的话是当前函数的方法
 			if(self::check_verify($code1) === true)
 			{
-			if(!empty($uname) && !empty($pwd) && !empty($code1)){
+			if(!empty($uname) && !empty($upwd) && !empty($code1)){
 				$manage = M('register');
-				$select = $manage->query(" select * from  register where uname='$uname' and upwd='$pwd' ");
+				$select = $manage->query(" select * from  register where uname='$uname' and upwd='$upwd' ");
 				if($select){
 					session('register',$select);
 					$this->redirect('Index/usecenter','',0,'登陆成功');
@@ -63,36 +63,41 @@ class IndexController extends Controller {
 	 
 	function register(){
 		
-		if(isset($_POST['submit'])){
+		if(IS_POST){
+			$uname1 = $_POST['uname1'];
+			if(isset($uname1) || !empty($uname1)){
+				$manage = M('register');
+				$data = $manage->query("select * from register where uname='$uname1'");
+				
+				if($data){
+					$chinass = '已注册';
+					$this->ajaxReturn($chinass,'json');
+					
+				}else{
+					$chinass = "√";
+					$this->ajaxReturn($chinass,'json');
+				}
+			}
+		
 			$uname = $_POST['uname'];
-			$pwd   = $_POST['pwd'];
+			$upwd   = $_POST['upwd'];
 			$phone = $_POST['phone'];
 			$name = $_POST['name'];
-				
-			if(!empty($uname)){
-				$manage = M('register');
-				$select = $manage->query("select * from register where uname='$uname'");
-				
-				if($select){
-					$this->redirect('Index/register','',1,'账号已存在');
-				}else{
-					$data = array(
-						'uname'  => $uname,
-						'pwd'    => $pwd,
-						'phone'  => $phone,
-						'name'   => $name,
-					);
-					
-					$mysql = M('register')->add($data);
-					if($mysql){
-						$session['uname'] = $uname;
-						$session['pwd']   = $pwd;
-						$this->redirect('Index/index','',1,'注册成功');
-					}else{
-						echo '注册失败';
-					}
-				}
-				
+
+			$data = array(
+				'uname'  => $uname,
+				'upwd'    => $upwd,
+				'phone'  => $phone,
+				'name'   => $name,
+			);
+			
+			$mysql = M('register')->add($data);
+			if($mysql){
+				$session['uname'] = $uname;
+				$session['upwd']   = $upwd;
+				$this->redirect('Index/index','',1,'注册成功');
+			}else{
+				echo '注册失败';
 			}
 		
 		}
@@ -125,6 +130,11 @@ class IndexController extends Controller {
 	// 		$kua = A('Sphinx/Sphinx'); //跨控制器调用
 	// 		echo $kua->SetConnectTimeout();
 	
+	}
+	
+	
+	function edit1(){
+		
 	}
 		
 }

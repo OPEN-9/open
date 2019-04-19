@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<?php if (!defined('THINK_PATH')) exit();?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<title></title>
-		<script type="text/javascript" src="{$Think.const.JS_URL}jquery-1.11.0.js"></script>
-		<link href="{$Think.const.CSS_URL}home/register.css" rel="stylesheet" type="text/css" />
-		<script src="{$Think.const.JS_URL}home/register.js" type="text/jscript"></script>
+		<script type="text/javascript" src="<?php echo (JS_URL); ?>jquery-1.11.0.js"></script>
+		<link href="<?php echo (CSS_URL); ?>home/register.css" rel="stylesheet" type="text/css" />
+		<script src="<?php echo (JS_URL); ?>home/register.js" type="text/jscript"></script>
 	</head>
 	<body>
 		<a href="demo.html">这个是html的点击</a>
