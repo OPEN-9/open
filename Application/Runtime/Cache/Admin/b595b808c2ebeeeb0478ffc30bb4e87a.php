@@ -5,9 +5,9 @@
  	<meta name="viewport" content="width=device-width, initial-scale=1.0">
  	<meta http-equiv="X-UA-Compatible" content="ie=edge">
  	<title></title>
-	<link href="<?php echo ($smarty["const"]["CSS_URL"]); ?>admin/index.css" rel="stylesheet" type="text/css" />
+	<link href="<?php echo (CSS_URL); ?>admin/index.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-	<script src="<?php echo ($smarty["const"]["JS_URL"]); ?>admin/index.js" type="text/jscript"></script>
+	<script src="<?php echo (JS_URL); ?>admin/index.js" type="text/jscript"></script>
  </head>
  <body>
 	 <div class="photo">
@@ -30,10 +30,10 @@
 			<p class="title">登录</p>
 			
 			<form action="index.html" method="post" class="form-class">
-				<input type="text"  placeholder="email" name="uname" class="uname"/>
-				<input type="password" placeholder="pwd" name="pwd"  class="pwd"/><br/>
+				<input type="text"  placeholder="number" name="uname" class="uname"/>
+				<input type="password" placeholder="upwd" name="upwd"  class="upwd"/><br/>
 				<input type="text" class="token" placeholder="验证码" name="token" />
-					<img src="<?php echo ($smarty["const"]["verify"]); ?>" onclick="this.src=this.src+'?'+Math.random()">
+					<img src="<?php echo (VERIFY); ?>" onclick="this.src=this.src+'?'+Math.random()">
 				<br/>
 				<button type="submit" name='zhuce'>注册</button>
 				<button type="submit" name='submit'>登录</button>

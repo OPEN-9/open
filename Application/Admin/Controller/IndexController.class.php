@@ -27,23 +27,25 @@ class IndexController extends Controller {
 			// self  仅限当前页面的方法  this的话是当前函数的方法
 			if(self::check_verify($code1) === true)
 			{
-			if(!empty($uname) && !empty($upwd) && !empty($code1)){
-				$manage = M('register');
-				$select = $manage->query(" select * from  register where uname='$uname' and upwd='$upwd' ");
-				if($select){
-					session('register',$select);
-					$this->redirect('Index/usecenter','',0,'登陆成功');
+				if(!empty($uname) && !empty($upwd) && !empty($code1)){
+					$manage = M('register');
+					$select = $manage->query(" select * from  register where uname='$uname' and upwd='$upwd' ");
+					if($select){
+						session('register',$select);
+						$this->redirect('Index/usecenter','',0,'登陆成功');
+					}else{
+						$this->redirect('Index/index','',1,'账号密码错误');
+					}
+					
 				}else{
-					$this->redirect('Index/index','',1,'账号密码错误');
+					$mes = 'null';
+					echo '<script>alert("$mes")</script>';
+					$this ->redirect('Index/index','',1,"请填写，用户名或密码");
 				}
-				
 			}else{
-				$mes = '请填写用户名或密码';
-				echo '<script>alert("$mes")</script>';
-				$this ->redirect('Index/index','',1,"请填写，用户名或密码");
-			}
-			}else{
-				echo 'error';
+				$mes = 'tokenerror';
+				echo '<script>alert'.($mes).'</script>';
+				$this ->redirect('Index/index','',10,"请填写，用户名或密码");
 			};
 			
 		}
@@ -64,41 +66,47 @@ class IndexController extends Controller {
 	function register(){
 		
 		if(IS_POST){
+			// ajax判断用户名是否重复
 			$uname1 = $_POST['uname1'];
 			if(isset($uname1) || !empty($uname1)){
 				$manage = M('register');
-				$data = $manage->query("select * from register where uname='$uname1'");
+				$data1 = $manage->query("select * from register where uname='$uname1'");
 				
-				if($data){
+				if($data1){
 					$chinass = '已注册';
 					$this->ajaxReturn($chinass,'json');
-					
 				}else{
 					$chinass = "√";
 					$this->ajaxReturn($chinass,'json');
 				}
+				
 			}
-		
-			$uname = $_POST['uname'];
-			$upwd   = $_POST['upwd'];
-			$phone = $_POST['phone'];
-			$name = $_POST['name'];
-
-			$data = array(
-				'uname'  => $uname,
-				'upwd'    => $upwd,
-				'phone'  => $phone,
-				'name'   => $name,
-			);
-			
-			$mysql = M('register')->add($data);
-			if($mysql){
-				$session['uname'] = $uname;
-				$session['upwd']   = $upwd;
-				$this->redirect('Index/index','',1,'注册成功');
-			}else{
-				echo '注册失败';
-			}
+					
+					$uname = $_POST['uname'];
+					$upwd   = MD5($_POST['upwd']);
+					$phone = $_POST['phone'];
+					$name = $_POST['name'];
+					$manage = M('register');
+					$data2 = $manage->query("select * from register where uname='$uname'");
+					
+					// 不允许重复的用户注册
+					if(!$data2)
+					
+					$data = array(
+						'uname'  => $uname,
+						'upwd'   => $upwd,
+						'phone'  => $phone,
+						'name'   => $name,
+					);
+					
+					$mysql = M('register')->add($data);
+					if($mysql){
+						$session['uname'] = $uname;
+						$session['upwd']   = $upwd;
+						$this->redirect('Index/index','',1,'注册成功');
+					}else{
+						echo '注册失败';
+					}
 		
 		}
 		

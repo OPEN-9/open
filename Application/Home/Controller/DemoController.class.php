@@ -22,23 +22,6 @@ class DemoController extends Controller {
 	}
 	
 	public function test(){
-		if(IS_POST){
-			$username=$_POST['uname'];
-			$pwd=$_POST['upwd'];
-			if($username=='' || $pwd==''){
-			    $this->ajaxReturn(array('status'=>0,'info'=>'name and pwdnot empty','url'=>''));
-			}
-			$User = D("User");
-			$result=$User->getUser("uname='".$username."' and upwd='".md5($pwd)."'");
-			if(empty($result)){
-			    $this->ajaxReturn(array('status'=>0,'info'=>'登录失败','url'=>''));
-			}else{
-			    session('account',$result['account']);
-			    $url=U('Index/show');
-			    $this->ajaxReturn(array('status'=>1,'info'=>'登录成功','url'=>$url));
-			}
-		}
-		
 		
 		$this->display();
 	}
