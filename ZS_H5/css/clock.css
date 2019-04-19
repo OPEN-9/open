@@ -1,0 +1,257 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+.mui-bar,
+.mui-content {
+	background: #fff !important;
+}
+
+.icon-fanhui {
+	color: #666666 !important;
+	font-size: 14px !important;
+	line-height: 24px;
+}
+.mui-bar .mui-icon{
+	position: unset;
+}
+
+.mui-bar{
+	box-shadow: none !important;
+	position: unset;
+}
+
+.mui-content {
+	padding-top: 0 !important;
+	width: 90%;
+	margin: 0 auto;
+}
+
+.title {
+	height: 80px;
+	line-height: 80px;
+	color: #333;
+	font-size: 16px;
+	font-weight: bold;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.single {
+	font-size: 14px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	border-top-left-radius: 10px;
+	text-align: center;
+	background: #00b776;
+	color: #fff;
+	padding: 4px 8px;
+	margin-right: 10px;
+}
+
+/* 复选框 */
+
+.checkitem {
+	height: 460px;
+}
+
+.checkbox {
+	position: relative;
+	height: 30px;
+}
+
+.checkbox input {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 18px;
+	height: 18px;
+	opacity: 0;
+}
+
+.checkbox label {
+	position: absolute;
+	left: 30px;
+	top: 0;
+	height: 20px;
+	line-height: 20px;
+}
+
+.checkbox label:before {
+	content: '';
+	position: absolute;
+	left: -30px;
+	top: 0;
+	width: 18px;
+	height: 18px;
+	border: 1px solid #ddd;
+	border-radius: 50%;
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.checkbox label:after {
+	content: '';
+	position: absolute;
+	left: -23px;
+	top: 3px;
+	width: 5px;
+	height: 12px;
+	border: 0;
+	border-right: 1px solid #fff;
+	border-bottom: 1px solid #fff;
+	background: #fff;
+	transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}
+
+.checkbox input:checked+label:before {
+	background: #00b776;
+	border-color: #00b776;
+}
+
+.checkbox input:checked+label:after {
+	background: #00b776;
+}
+
+
+.text {
+	outline: none;
+	border: none;
+	background: #f9f9f9;
+	border-radius: 6px;
+	height: 122px;
+}
+
+
+.submit {
+	width: 100%;
+	height: 46px;
+	line-height: 46px;
+	background: #51b3fa;
+	text-align: center;
+	border-radius: 30px;
+	color: #fff;
+	font-size: 16px;
+}
+
+/* 遮罩层 */
+
+#main ,.main1{
+	width: 100%;
+	height: 100%;
+	display: none;
+	position: relative;
+}
+
+.box ,.box1 {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.3);
+}
+
+#dialog , .dialog1{
+	border-radius: 15px;
+	text-align: center;
+	width: 240px;
+	height: 280px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	background-color: white;
+}
+
+.dialog1{
+	background: #49bdff;
+	width: 220px;
+	height: 220px;
+	padding: 0 20px;
+}
+.dialog1 p{
+	color: #fff;
+}
+
+.dialog-title {
+	height: 40px;
+	line-height: 40px;
+	margin-bottom: 0;
+	font-size: 16px;
+	font-weight: bold;
+	color: #333;
+}
+
+.this {
+	margin-top: 28%;
+}
+
+.speed {
+	height: 122px;
+	width: 122px;
+	border: 5px solid #e6e6e6;
+	border-radius: 50%;
+	margin: 0 auto;
+}
+
+.color2{
+	color: #0ebb6e;
+}
+.subject{
+	color: #333;
+	font-size: 16px;
+	height: 66px;
+	line-height: 66px;
+}
+
+.mainbottom{
+	height: 40px;
+	line-height: 40px;
+}
+
+.mainleft , .mainright{
+	float: left;
+	width: 50%;
+	height: 42px;
+	font-size: 14px;
+}
+.mainleft{
+	background: #f4f4f4;
+	color: #666666;
+	border-bottom-left-radius: 10px;
+}
+.mainright{
+	background: #1ec079;
+	color: #fff;
+	border-bottom-right-radius: 10px;
+}
+
+.submitsuccess{
+	font-size: 30px;
+	height: 112px;
+	line-height: 112px;
+}
+
+.close{
+	top: 70%;
+    left: 47%;
+    border: 2px solid #fff;
+	color: #fff;
+    width: 36px;
+    height: 36px;
+    line-height: 36px;
+    border-radius: 50%;
+    text-align: center;
+    position: absolute;
+}

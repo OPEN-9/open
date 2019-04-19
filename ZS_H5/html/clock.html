@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../js/jquery-1.11.0.js"></script>
+		<script type="text/javascript" src="../js/clock.js" ></script>
+		<script src="../js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init()
+		</script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="../css/clock.css" />
+		<link rel="stylesheet" href="//at.alicdn.com/t/font_1103150_uhkbrhczszs.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+	<header class="mui-bar mui-bar-nav top-bg">
+		<a class="mui-action-back iconfont mui-icon icon-fanhui mui-pull-left img-back"></a>
+		<h1 class="mui-title top-title">调查问卷</h1>
+	</header>
+	<p class="aaaa">11</p>
+	<div class="mui-content content-name">
+		<!-- 这是选择区域 -->
+		<p class="title"><span class="single">单选</span>1/20.您的性别</p>
+		<div class="checkitem">
+			<div class='checkbox'>
+			<input type='radio' id='checkbox1' name='checkboox[]'>
+			<label for='checkbox1'>男</label>
+			</div>
+			<div class='checkbox'>
+				<input type='radio' id='checkbox2' name='checkboox[]'>
+				<label for='checkbox2'>女</label>
+			</div>
+		</div>
+		<!-- 这是文本区域  需要的时候调用-->		
+		<!-- <textarea class="text">11</textarea> -->
+		<div class="submit">提交问卷</div>
+	</div>
+	
+	
+	<!-- /* 退出的遮罩层提示 */  -->
+	<div id="main">
+		<div class="box">
+			<div id="dialog">
+				<p class="dialog-title">退出调查</p>
+				<div class="speed">
+					<p class="this">当前调查进度</p>
+					<p class="color2">6 / 30题</p>
+				</div>
+				<p class="subject">还有<a class="color2">10</a>道题未做</p>
+				<div class="mainbottom">
+					<div class="mainleft">继续调查</div>
+					<div class="mainright">退出</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<!-- /* 提交的遮罩层提示 */  -->
+	<div class="main1">
+		<div class="box1">
+			<div class="dialog1">
+				<p class="submitsuccess">提交成功</p>
+				<p>恭喜你，提交成功</p>
+				<p>感谢您的建议与支持，祝你前程似锦！</p>
+			</div>
+			<div class="close">X</div>
+		</div>
+	</div>
+	
+	</body>
+</html>

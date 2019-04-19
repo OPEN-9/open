@@ -1,0 +1,172 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body,
+.mui-bar,
+.mui-content {
+	background: #fff !important;
+}
+
+.mui-bar {
+	box-shadow: none !important;
+}
+
+.mui-settime {
+	height: 150px;
+	width: 90%;
+	margin: 0 auto;
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.leftdate {
+	padding: 50px 0;
+	height: 150px;
+	float: left;
+	width: 65%;
+}
+
+.leftdate-time {
+	font-size: 38px;
+	color: #6fb2fd;
+}
+
+.leftdate-date {
+	font-size: 16px;
+}
+
+.right-time {
+	padding: 40px 10px;
+	float: left;
+	width: 35%;
+}
+
+.circular {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	float: right;
+	background: #3ed9f9;
+}
+
+.job-clock {
+	height: 170px;
+	padding: 20px 0;
+	overflow-x: scroll;
+	width: 90%;
+	margin: 10px auto;
+}
+
+.job-clock .job-clock1 {
+	width: 100%;
+}
+
+.job-clock .job-clock1,
+.job-clock .job-clock1 li {
+	float: left;
+	list-style: none;
+	height: 40px;
+	line-height: 40px;
+	color: #c2c2c2;
+	font-size: 13px;
+}
+
+.job-clock .job-clock1 li {
+	margin-right: 5%;
+}
+
+.job-clock .job-clock1 li:nth-child(5) {}
+
+.job-clock1 .date {
+	font-size: 20px !important;
+	color: #b3b3b3;
+}
+
+.job-clock1 .xia {
+	border-right: 1px solid;
+	height: 30px !important;
+
+}
+
+.job-clock1 .normal {
+	background: #00D100;
+	padding: 0px 6px;
+	height: 25px !important;
+	float: right !important;
+	margin-top: 6px;
+	line-height: 25px !important;
+	color: #fff !important;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+	width: 46px;
+}
+
+.color1 {
+	background: #ff7b53 !important;
+}
+
+.containel {
+	height: 190px;
+	width: 100%;
+	margin: 0 auto;
+	background: #7dbaff;
+	padding: 0px 20px;
+	margin-top: 43px;
+}
+
+.title {
+	height: 80px;
+	line-height: 80px;
+	width: 100%;
+	border-bottom: 1px solid #cbe3ff;
+	font-size: 20px;
+	color: #fff;
+}
+
+.newget {
+	float: right;
+	font-size: 14px;
+	border-bottom-right-radius: 10px;
+	border-bottom-left-radius: 10px;
+	border-top-right-radius: 10px;
+	text-align: center;
+	background: #97c8ff;
+	padding: 0px 6px;
+	height: 30px !important;
+	margin-top: 26px;
+	line-height: 30px !important;
+}
+
+.date-text1 {
+	font-size: 16px;
+	margin-top: 24px;
+	color: #e6f2ff;
+}
+
+.date-time {
+	font-size: 36px;
+	color: #fff;
+}
+
+.bottom {
+	height: 60px;
+	line-height: 60px;
+	color: #fff;
+}
+
+.button-left {
+	float: left;
+	width: 60%;
+	text-align: center;
+	background: #abd3ff;
+}
+
+.button-right {
+	float: right;
+	width: 40%;
+	text-align: center;
+	background: #91c5ff;
+}
