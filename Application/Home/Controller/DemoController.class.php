@@ -5,7 +5,7 @@ class DemoController extends Controller {
 
 	public function demo1(){
 		$mysql = M('user');
-		$abc = $mysql->select();
+		$abc = $mysql->select(); 
 		$this->assign('data',$abc);
 		$this->display();
 	}
